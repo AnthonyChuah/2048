@@ -1,0 +1,1 @@
+This is a not-yet-complete 2048 game to be programmed in C++.
