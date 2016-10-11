@@ -38,7 +38,7 @@ ostream& operator <<(ostream& outs, const Game2048& the_object)
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
       {
-	outs << "|" << setw(4) << square[i][j];
+	outs << "|" << setw(4) << the_object.square[i][j];
 	if (j == 3)
 	  {
 	    outs << "|\n";
@@ -64,7 +64,7 @@ bool operator ==(const Game2048& left_object, const Game2048& right_object)
     return false;
 }
 
-void Game2048::move_tiles(char direction);
+void Game2048::move_tiles(char direction)
 {
   // If 'a' left swipe: first check if it is a possible move.
   if (direction == 'a' && left_possible())

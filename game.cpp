@@ -27,7 +27,7 @@ int main()
   cout << "This is the initial state of the 2048 board:\n\n"
        << this_game;
   int turns = 1;
-  while (!(this_game.status == 0))
+  while ((this_game.status == 0))
     {
       cout << "2048 Game Turn " << turns << "\n\n";
       turns++;
@@ -36,7 +36,7 @@ int main()
       cin >> player_input;
       // If player_input does not match a/s/d/w, the game square will simply not change.
       this_game.move_tiles(player_input);
-      this_game.check_game_status; // Even though it returns a value it also modifies object's status. Overkill!
+      this_game.check_game_status(); // Even though it returns a value it also modifies object's status. Overkill!
       if (this_game == previous_game)
 	{
 	  // Then player has done an illegal move and the game square was not changed.

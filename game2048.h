@@ -41,3 +41,5 @@ private:
   int square[4][4];
   // 2d array containing the tiles on the 4x4 square.
 };
+
+#endif
