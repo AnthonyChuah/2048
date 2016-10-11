@@ -8,3 +8,5 @@ This is a 2048 game. Use 'a' 's' 'w' 'd' as the swiping directions:
 The game ends and you win once there is a 2048 on the game square,
 
 Your score is calculated as the total of all the tiles on the game square.
+
+Compilation on MinGW: g++ game2048.cpp game.cpp -o game.exe
