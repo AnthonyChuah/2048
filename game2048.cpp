@@ -9,11 +9,9 @@ using namespace std;
 
 Game2048::Game2048()
 {
-  // First fill everything in square with 0.
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
       square[i][j] = 0;
-  // Generate a 2 in a random tile.
   int rand_row, rand_col;
   rand_row = rand() % 4;
   rand_col = rand() % 4;
@@ -66,7 +64,6 @@ bool operator ==(const Game2048& left_object, const Game2048& right_object)
 
 void Game2048::move_tiles(char direction)
 {
-  // If 'a' left swipe: first check if it is a possible move.
   if (direction == 'a' && left_possible())
     move_left();
   if (direction == 'd' && right_possible())
@@ -85,7 +82,7 @@ void Game2048::move_left()
   // 3. move-up (traverse blank spaces).
   for (int i = 0; i < 4; i++)
     {
-      // Do 1 move-up twice:
+      // Do (1) move-up twice:
       for (int twice = 0; twice < 2; twice++)
 	{
 	  for (int j = 1; j < 4; j++)
@@ -98,7 +95,7 @@ void Game2048::move_left()
 		}
 	    }
 	}
-      // Do join-up:
+      // Do (2) join-up:
       for (int j = 1; j < 4; j++)
 	{
 	  if (square[i][j] == square[i][j-1])
@@ -107,7 +104,7 @@ void Game2048::move_left()
 	      square[i][j] = 0;
 	    }
 	}
-      // Do one final move-up.
+      // Do (3) one final move-up.
       for (int j = 1; j < 4; j++)
 	{
 	  if (square[i][j-1] == 0)
@@ -272,7 +269,6 @@ bool Game2048::left_possible()
 
 bool Game2048::right_possible()
 {
-  // Check if 'd' right swipe is possible:
   for (int j = 0; j < 3; j++)
     for (int i = 0; i < 4; i++)
       {
@@ -284,7 +280,6 @@ bool Game2048::right_possible()
 
 bool Game2048::down_possible()
 {
-  // Check if 's' down swipe is possible:
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 4; j++)
       {
@@ -296,7 +291,6 @@ bool Game2048::down_possible()
 
 bool Game2048::up_possible()
 {
-  // Check if 'w' up swipe is possible:
   for (int i = 3; i > 0; i--)
     for (int j = 0; j < 4; j++)
       {
